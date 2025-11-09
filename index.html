@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🌶️ Andhra Delight — Ordering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">🌶️ Andhra Delight</div>
+        <div class="tag small">Authentic Guntur flavours</div>
+      </div>
+      <div class="controls">
+        <input id="search" class="search" placeholder="Search dishes, e.g. biryani" />
+        <div id="filterAll" class="chip active" data-cat="all">All</div>
+        <div id="filterStarters" class="chip" data-cat="Starters">Starters</div>
+        <div id="filterMain" class="chip" data-cat="Main Course">Main</div>
+        <div id="filterRice" class="chip" data-cat="Rice & Biryanis">Rice</div>
+        <div id="filterSides" class="chip" data-cat="Side Dishes">Sides</div>
+        <div id="filterDessert" class="chip" data-cat="Desserts & Beverages">Dessert</div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="menu">
+        <h2>Menu</h2>
+        <div id="menuRoot"></div>
+      </section>
+
+      <aside class="cart">
+        <h3>Your Cart</h3>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-summary">
+          <div class="row"><div class="small">Subtotal</div><div id="subtotal">₹0</div></div>
+          <div class="row"><div class="small">Tax (5%)</div><div id="tax">₹0</div></div>
+          <div class="row total"><div class="small">Total</div><div id="total">₹0</div></div>
+          <div style="display:flex;gap:0.5rem;margin-top:0.6rem">
+            <button id="clearCart" class="btn">Clear</button>
+            <button id="saveOrder" class="btn">Save Order</button>
+            <button id="payNow" class="btn primary">Pay Now</button>
+          </div>
+        </div>
+        <div class="customer">
+          <input id="customer-name" placeholder="Your name" />
+          <input id="customer-phone" placeholder="Phone number" />
+          <textarea id="customer-note" placeholder="Note (extra spice / no onion)"></textarea>
+          <div style="display:flex;gap:0.5rem">
+            <button id="submitOrder" class="btn">Submit Order (Email)</button>
+            <button id="printReceipt" class="btn ghost">Print Receipt</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" style="display:none">
+      <div class="modal-card">
+        <button id="modalClose" class="close-modal">✕</button>
+        <div class="modal-body">
+          <img id="modalImg" src="" alt="item" />
+          <div class="modal-info">
+            <h3 id="modalName"></h3>
+            <div id="modalDesc" class="muted"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.6rem">
+              <strong id="modalPrice">₹0</strong>
+              <div class="qty">
+                <button id="decQty">−</button>
+                <div id="qtyVal" style="min-width:20px;text-align:center">1</div>
+                <button id="incQty">+</button>
+              </div>
+            </div>
+            <button id="addToCart" class="btn" style="margin-top:0.5rem">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
